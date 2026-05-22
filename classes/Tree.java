@@ -1,45 +1,35 @@
 package classes;
 
-import interfaces.Flyweight;
+import interfaces.IFlyweightTree;
 
-public class Tree implements Flyweight {
-    private final int id;
-    private int size;
-    private int leafs;
-    private String species;
-    
-    public Tree(int id, int size, int leafs, String species) {
-        this.id = id;
+public class Tree implements IFlyweightTree {
+    private final int size;
+    private final int leafs;
+    private final String species;
+
+    public Tree(int size, int leafs, String species) {
         this.size = size;
         this.leafs = leafs;
         this.species = species;
     }
 
-    public int getId() {
-        return id;
-    }
-
+    @Override
     public int getSize() {
         return size;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
+    @Override
     public int getLeafs() {
         return leafs;
     }
 
-    public void setLeafs(int leafs) {
-        this.leafs = leafs;
-    }
-
+    @Override
     public String getSpecies() {
         return species;
     }
 
-    public void setSpecies(String species) {
-        this.species = species;
+    @Override
+    public String render(int id) {
+        return "Tree " + id + ": " + species + ", Size: " + size + ", Leafs: " + leafs;
     }
 }
