@@ -8,18 +8,15 @@ import interfaces.IFlyweightTree;
 
 public class TreeFactory implements ITreeFactory {
 
-    private final Map<Integer, IFlyweightTree> pool = new HashMap<>();
+    private final Map<String, IFlyweightTree> pool = new HashMap<>();
 
-    private int hashFunction(int size, int leafs, String species) {
-        int n = size;
-        n = 31 * n + leafs;
-        n = 31 * n + species.hashCode();
-        return n;
+    private String hashFunction(int size, int leafs, String species) {
+        return size + "_" + leafs + "_" + species;
     }
 
     @Override
     public IFlyweightTree create(int size, int leafs, String species) {
-        int hash = hashFunction(size, leafs, species);
+        String hash = hashFunction(size, leafs, species);
         IFlyweightTree tree = pool.get(hash);
         if (tree == null) {
             tree = new Tree(size, leafs, species);
