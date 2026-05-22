@@ -1,9 +1,9 @@
 # FlyweightForest
 
-Projeto simples que demonstra o padrao de design Flyweight com uma fabrica de arvores que reutiliza instancias com a mesma especie.
+Projeto simples que demonstra o padrao de design Flyweight com uma fabrica de arvores que reutiliza instancias com os mesmos atributos.
 
 ## Conceito
-O padrao Flyweight reduz uso de memoria ao compartilhar objetos semelhantes. Neste exemplo, a classe `TreeFactory` mantem um pool de `Tree` e retorna a mesma instancia quando a especie ja existe. O estado intrinseco fica no flyweight (`species`) e o estado extrinseco e fornecido no `render` (id, size, leafs).
+O padrao Flyweight reduz uso de memoria ao compartilhar objetos semelhantes. Neste exemplo, a classe `TreeFactory` mantem um pool de `Tree` e retorna a mesma instancia quando `size`, `leafs` e `species` sao iguais. O estado intrinseco fica no flyweight (`size`, `leafs`, `species`) e o estado extrinseco e fornecido no `render` (`id`).
 
 ## Estrutura
 - `classes/Main.java`: executa o exemplo e imprime os dados usando `render`.
@@ -26,8 +26,8 @@ java classes.Main
 ```
 
 ## Observacoes
-- Ao chamar `create` com a mesma especie, a instancia e reutilizada.
-- O flyweight e imutavel e guarda apenas `species`; `id`, `size` e `leafs` sao extrinsecos e variam por uso.
+- Ao chamar `create` com os mesmos valores de `size`, `leafs` e `species`, a instancia e reutilizada.
+- O flyweight e imutavel e guarda `size`, `leafs` e `species`; apenas `id` e extrinseco e varia por uso.
 
 ## Autores
 - Joao Vitor Mancio Chaves

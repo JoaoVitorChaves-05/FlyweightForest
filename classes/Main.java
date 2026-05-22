@@ -1,8 +1,10 @@
 package classes;
 
+import interfaces.ITreeFactory;
+
 public class Main {
     public static void main(String[] args) {
-        TreeFactory treeFactory = new TreeFactory();
+        ITreeFactory treeFactory = new TreeFactory();
 
         System.out.println(treeFactory.create(10, 100, "Oak").render(1));
         System.out.println(treeFactory.create(15, 150, "Pine").render(2));
